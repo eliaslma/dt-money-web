@@ -1,39 +1,48 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import {
     Container,
     Table
 } from './styles';
 
-export function TransactionsTable(){
+interface TransactionProps {
+    id: number;
+    description: string,
+    amount: number,
+    type: string,
+    createdAt: string,
+    category: string,
+}
+
+export function TransactionsTable() {
+
+    const [transactions, setTransactions] = useState<TransactionProps[]>([]);
 
     useEffect(() => {
-        api.get('transactions').then(response => console.log(response.data))
-    },[])
+        api.get('transactions')
+            .then(response => setTransactions(response.data.transactions))
+    }, [])
 
-    return(
+    return (
         <Container>
             <Table>
                 <tbody>
-                    <tr>
-                        <td>Aluguel</td>
-                        <td className='widthdraw'>- R$ 12.000</td>
-                        <td>Casa</td>
-                        <td>12/04/2022</td>
-                    </tr>
+                    {
+                        transactions && transactions.map(transaction => (
+                            <tr key={transaction.id}>
+                                <td>{transaction.description}</td>
+                                <td className={transaction.type}>
+                                    {transaction.type == 'withdraw' && '-'} R$ {transaction.amount}
+                                </td>
+                                <td>{transaction.category}</td>
+                                <td>{transaction.createdAt}</td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </Table>
-            <Table>
-                <tbody>
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td className='deposit'>R$ 12.000</td>
-                        <td>Venda</td>
-                        <td>12/04/2022</td>
-                    </tr>
-                </tbody>
-            </Table>
+
         </Container>
     );
 }

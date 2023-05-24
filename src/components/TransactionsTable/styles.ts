@@ -20,7 +20,7 @@ export const Container = styled.div`
             border-bottom-right-radius:  0.35rem;
         }
 
-        &.widthdraw{
+        &.withdraw{
             color: var(--red)
         }
 
