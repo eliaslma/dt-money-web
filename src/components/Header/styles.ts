@@ -26,6 +26,6 @@ export const Button = styled.button`
     transition: 0.2s;
 
     &:hover{
-        filter: brightness(0.9);
+        background-color: var(--greenlight);
     }
 `;
