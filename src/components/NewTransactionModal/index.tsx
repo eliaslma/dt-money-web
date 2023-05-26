@@ -1,8 +1,8 @@
 import { ArrowCircleDown, ArrowCircleUp } from '@phosphor-icons/react';
-import { FormEvent, useContext, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
-import { TransactionsContext } from '../../TransactionsContext';
 import closeImage from '../../assets/close.svg';
+import { useTransactions } from '../../hooks/useTransactions';
 import { Container, TransactionTypeContainer, TypeTransactionButton } from './styles';
 
 interface NewTransactionModalProps {
@@ -12,7 +12,7 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
 
-    const {createTransaction} = useContext(TransactionsContext);
+    const {createTransaction} = useTransactions();
 
     const [description, setDescription] = useState('');
     const [amount, setAmount] = useState<number>();

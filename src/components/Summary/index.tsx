@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import { TransactionsContext } from '../../TransactionsContext';
+import { useTransactions } from '../../hooks/useTransactions';
 
 import {
     Container
@@ -9,7 +8,7 @@ import { HighlightCard } from '../HighlightCard';
 
 export function Summary() {
 
-    const { transactions } = useContext(TransactionsContext);
+    const { transactions } = useTransactions();
 
     const summary = transactions.reduce((acc, transaction) => {
         if (transaction.type === 'deposit') {
