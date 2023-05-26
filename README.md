@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+![preview](.github/preview.png)
+# DT Money 💰
+Uma incrível plataforma de gerenciamento de fluxo de caixa para auxiliar no controle de ganhos e gastos do usuário.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto é resultado de um desafio de desenvolvimento web proposto pela [Rocketseat](https://github.com/Rocketseat), foi produzido utilizando conceitos iniciais de ReactJS.
 
-## Available Scripts
+<a href="[https://www.figma.com/file/ruqh1i9cJRW8VdQXTatOxg/RentX-V1](https://www.figma.com/community/file/1138814493269096792)">
+<img src="https://user-images.githubusercontent.com/71772559/178192253-4fe4757c-de57-4878-a38c-a483c25670b1.png"/>
+</a>
 
-In the project directory, you can run:
+## [](https://github.com/eliaslma/dt-money-web) 🚀 Como executar o projeto
 
-### `npm start`
+### Pré-requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Git](https://git-scm.com) e [Node.js](https://nodejs.org/en/).
 
-### `npm test`
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### 🧭 1. Rodando o APP
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Acesse a pasta do projeto no seu terminal/cmd
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+$ cd dt-money-web
 
-### `npm run eject`
+# Instale as dependências
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+$ npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# ou
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+$ yarn
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Execute a aplicação
 
-## Learn More
+$ yarn start ou npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## [](https://github.com/eliaslma) 👨‍🚀 Autor
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+<a href="https://github.com/eliaslma">
+
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/70176310?v=4" width="100px;" alt="Elias Lima da Silva"/>
+
+ <br />
+
+ <sub><b>Elias Lima da Silva</b></sub></a>
+
+In ☕ We Trust!
+
+Entre em contato:
+
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/elias-lima-da-silva-a933a713a/)](https://www.linkedin.com/in/elias-lima-da-silva-a933a713a/)
+[![Whatsapp Badge](https://img.shields.io/badge/-Whatsapp-4CA143?style=for-the-badge&labelColor=4CA143&logo=whatsapp&logoColor=white&link=https://api.whatsapp.com/send?phone=5544997075632&text=Olá!)](https://api.whatsapp.com/send?phone=5544997075632&text=Olá!)
+[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:sci.eliaslima@gmail.com)](mailto:sci.eliaslima@gmail.com)
