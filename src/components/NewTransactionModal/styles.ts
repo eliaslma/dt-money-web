@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 interface TypeTransactionButtonProps {
-    isActive: boolean;
-    activeColor: 'green' | 'red';
+    isactive: boolean;
+    activecolor: 'green' | 'red';
 }
 
 const colors = {
@@ -80,13 +80,13 @@ export const TypeTransactionButton = styled.button<TypeTransactionButtonProps>`
     height: 3.5rem;
     border-radius: 0.35rem;
     border: 0;
-    background-color: ${(props) =>  props.isActive ? colors[props.activeColor] : '#29292E'};
+    background-color: ${(props) =>  props.isactive ? colors[props.activecolor] : '#29292E'};
     transition: 0.2s;
 
     span{
         display: inline-block;
         margin-left: 0.65rem;
-        color: ${(props) => props.isActive ? '#FFFFFF' : '#C4C4CC'};
+        color: ${(props) => props.isactive ? '#FFFFFF' : '#C4C4CC'};
         font-size: 1rem;
     }
 

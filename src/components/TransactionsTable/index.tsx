@@ -1,39 +1,34 @@
+import { useTransactions } from '../../hooks/useTransactions';
 
-import { useEffect } from 'react';
-import { api } from '../../services/api';
 import {
     Container,
     Table
 } from './styles';
 
-export function TransactionsTable(){
+export function TransactionsTable() {
 
-    useEffect(() => {
-        api.get('transactions').then(response => console.log(response.data))
-    },[])
+    const {transactions} = useTransactions();
 
-    return(
+    return (
         <Container>
             <Table>
                 <tbody>
-                    <tr>
-                        <td>Aluguel</td>
-                        <td className='widthdraw'>- R$ 12.000</td>
-                        <td>Casa</td>
-                        <td>12/04/2022</td>
-                    </tr>
+                    {
+                        transactions && transactions.map(transaction => (
+                            <tr key={transaction.id}>
+                                <td>{transaction.description}</td>
+                                <td className={transaction.type}>
+                                    {transaction.type === 'withdraw' && '-'} 
+                                    {new Intl.NumberFormat('pt-BR',{style: 'currency', currency: 'BRL'}).format(transaction.amount) }
+                                </td>
+                                <td>{transaction.category}</td>
+                                <td>{new Intl.DateTimeFormat('pt-BR').format( new Date(transaction.createdAt) )}</td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </Table>
-            <Table>
-                <tbody>
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td className='deposit'>R$ 12.000</td>
-                        <td>Venda</td>
-                        <td>12/04/2022</td>
-                    </tr>
-                </tbody>
-            </Table>
+
         </Container>
     );
 }

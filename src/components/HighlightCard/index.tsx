@@ -11,7 +11,7 @@ import OutcomeImge from '../../assets/outcome.svg';
 interface Props {
     type: 'up' | 'down' | 'total',
     title: string,
-    amount?: String,
+    amount: number,
 }
 
 const icon = {
@@ -27,7 +27,7 @@ export function HighlightCard({ type, title, amount }: Props) {
                 <p>{title}</p>
                 <img src={icon[type]} alt={title} />
             </Header>
-            <strong>R$ 17.400,00</strong>
+            <strong>{Intl.NumberFormat('pt-BR',{ style: 'currency',currency: 'BRL'}).format(amount)}</strong>
         </Container>
     );
 }

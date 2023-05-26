@@ -1,7 +1,8 @@
 import { ArrowCircleDown, ArrowCircleUp } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 import closeImage from '../../assets/close.svg';
+import { useTransactions } from '../../hooks/useTransactions';
 import { Container, TransactionTypeContainer, TypeTransactionButton } from './styles';
 
 interface NewTransactionModalProps {
@@ -11,7 +12,24 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
 
-    const [type, setType] = useState<string>();
+    const {createTransaction} = useTransactions();
+
+    const [description, setDescription] = useState('');
+    const [amount, setAmount] = useState<number>();
+    const [category, setCategory] = useState('')
+    const [type, setType] = useState('');
+
+    async function handleCreateNewTransaction(event: FormEvent) {
+        event.preventDefault();
+        await createTransaction({ description, amount: Number(amount), type, category }).then(resetForm)
+    }
+
+    function resetForm(){
+        setDescription('');
+        setAmount(0);
+        setCategory('');
+        setType('');
+    }
 
     return (
         <Modal
@@ -24,16 +42,27 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                 className='react-modal-close'>
                 <img src={closeImage} alt="Fechar modal" />
             </button>
-            <Container>
+            <Container onSubmit={handleCreateNewTransaction}>
                 <h1>Nova transação</h1>
-                <input type="text" placeholder='Descrição' />
-                <input type="number" placeholder='Preço' />
-                <input type="text" placeholder='Categoria' />
+                <input
+                    type="text"
+                    placeholder='Descrição'
+                    value={description}
+                    onChange={event => setDescription(event.target.value)} />
+                <input
+                    type="number"
+                    placeholder='Preço'
+                    value={amount}
+                    onChange={event => setAmount(Number(event.target.value))} />
+                <input
+                    type="text" placeholder='Categoria'
+                    value={category}
+                    onChange={event => setCategory(event.target.value)} />
                 <TransactionTypeContainer>
                     <TypeTransactionButton
                         type="button"
-                        isActive={type === 'deposit'}
-                        activeColor='green'
+                        isactive={type === 'deposit'}
+                        activecolor='green'
                         onClick={() => setType("deposit")}>
                         <ArrowCircleUp
                             size={24}
@@ -43,8 +72,8 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                     </TypeTransactionButton>
                     <TypeTransactionButton
                         type="button"
-                        isActive={type === 'withdraw'}
-                        activeColor='red'
+                        isactive={type === 'withdraw'}
+                        activecolor='red'
                         onClick={() => setType("withdraw")}>
                         <ArrowCircleDown
                             size={24}
